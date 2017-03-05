@@ -1,0 +1,23 @@
+{
+  "name": "nodejs_hw",
+  "version": "1.0.0",
+  "description": "Homework for 'szerveroldali javascript' course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OMMHOA/NodeJS_hw.git"
+  },
+  "author": "Osman Omar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OMMHOA/NodeJS_hw/issues"
+  },
+  "homepage": "https://github.com/OMMHOA/NodeJS_hw#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.0"
+  }
+}
