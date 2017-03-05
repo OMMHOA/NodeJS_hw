@@ -1,0 +1,55 @@
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+.main-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    min-height:400px;
+}
+
+.jumbotron {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    
+    background-image: url(../img/bg-books.jpg);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+
+    animation: animatedBackground 40s linear infinite;
+}
+
+.title {
+    background: #7f0505;
+    color:floralwhite;
+}
+
+.input-text{
+    width: 100%;
+}
+
+.book{
+    border: 1px solid;
+}
+
+.login{
+    border: 1px solid;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
+.registration{
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
+.filters{
+    border: 1px solid;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
+.comment-section{
+    border: 1px solid;
+}
