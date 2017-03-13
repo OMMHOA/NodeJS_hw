@@ -14,13 +14,15 @@ var getCityOfUserMW = require('../middleware/user/getCityOfUser');
 
 module.exports = function (app) {
     var objectRepository = {
-        userModel: userModel
+        userModel: "asd",
+        bookModel: "asd"
     };
 
     app.use('/',
-    function(req, res, next) {
-        return res.redirect('/home');
-    });
+        softAuthMW(objectRepository),
+        getBookListMW(objectRepository),
+        renderMW(objectRepository, 'home')
+    );
 
     app.use('/home',
         softAuthMW(objectRepository),

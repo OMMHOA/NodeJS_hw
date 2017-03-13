@@ -7,6 +7,10 @@ var registerUserMW = require('../middleware/user/registerUser');
 var updateBookMW = require('../middleware/book/updateBook');
 
 module.exports = function (app) {
+    var objectRepository = {
+        bookModel : "asd"
+    };
+
     app.get('/registration',
         inverseAuthMW(objectRepository),
         renderMW(objectRepository, 'registration')

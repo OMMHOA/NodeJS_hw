@@ -1,4 +1,5 @@
 var softAuthMW = require('../middleware/generic/auth/softAuth');
+var hardAuthMW = require('../middleware/generic/auth/hardAuth');
 var renderMW = require('../middleware/generic/render');
 
 var getBookMW = require('../middleware/book/getBook');
@@ -7,7 +8,7 @@ var updateBookMW = require('../middleware/book/updateBook');
 
 module.exports = function (app) {
     var objectRepository = {
-        bookModel: bookModel
+        bookModel: "asd"
     };
 
     app.use('/book/:bookid',
