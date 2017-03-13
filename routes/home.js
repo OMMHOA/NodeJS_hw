@@ -1,7 +1,8 @@
 var softAuthMW = require('../middleware/generic/auth/softAuth');
 var hardAuthMW = require('../middleware/generic/auth/hardAuth');
-var renderHomeMW = require('../middleware/generic/render/renderHome');
+var renderMW = require('../middleware/generic/render');
 var inverseAuthMW = require('../middleware/generic/auth/inverseAuth');
+var logoutMW = require('../middleware/generic/logout');
 
 var getBookListMW = require('../middleware/book/getBookList');
 var getBookListWithCityMW = require('../middleware/book/filter/getBookListWIthCity');
@@ -9,6 +10,7 @@ var getBookListWithStatusMW = require('../middleware/book/filter/getBookListWith
 var getBookListLikeTitleMW = require('../middleware/book/search/getBookListLikeTitle');
 
 var checkUserLoginMW = require('../middleware/user/checkUserLogin');
+var getCityOfUserMW = require('../middleware/user/getCityOfUser');
 
 module.exports = function (app) {
     var objectRepository = {
@@ -23,29 +25,39 @@ module.exports = function (app) {
     app.use('/home',
         softAuthMW(objectRepository),
         getBookListMW(objectRepository),
-        renderHomeMW(objectRepository)
+        renderMW(objectRepository, 'home')
     );
 
     app.use('/filterByCity',
-        hardAuthMW(objectRepository),
+        softAuthMW(objectRepository),
+        getCityOfUserMW(objectRepository),
         getBookListWithCityMW(objectRepository),
-        renderHomeMW(objectRepository)
+        renderMW(objectRepository, 'home')
     );
 
     app.use('/filterByStatus',
         hardAuthMW(objectRepository),
-        getBookListWithStatusMW(objectRepository),
-        renderHomeMW(objectRepository)
+        getBookListWithStatusMW(objectRepository, 'available'),
+        renderMW(objectRepository, 'home')
     );
 
     app.use('/search',
         getBookListLikeTitleMW(objectRepository),
-        renderHomeMW(objectRepository)
+        renderMW(objectRepository, 'home')
     );
 
-    app.use('/registration',
+    app.use('/login',
         inverseAuthMW(objectRepository),
         checkUserLoginMW(objectRepository),
-        renderHomeMW(objectRepository)
+        function (req, res, next) {
+            res.redirect('/');
+        }
+    );
+
+    app.use('logout',
+        logoutMW(objectRepository),
+        function (req, res, next) {
+            res.redirect('/');
+        }
     );
 };

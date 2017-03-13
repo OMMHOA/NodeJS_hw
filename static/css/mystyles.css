@@ -4,18 +4,16 @@
 }
 
 .main-content {
-    margin:0px auto;
-    padding: 50px 0px 50px 0px;
+    margin:0 auto;
+    padding: 50px 0 50px 0;
     min-height:400px;
 }
 
 .jumbotron {
     padding:70px 30px 70px 30px;
-    margin:0px auto;
-    
-    background-image: url(../img/bg-books.jpg);
-    background-position: 0px 0px;
-    background-repeat: repeat-x;
+    margin:0 auto;
+
+    background: url(../img/bg-books.jpg) repeat-x 0 0;
 
     animation: animatedBackground 40s linear infinite;
 }
@@ -36,18 +34,18 @@
 .login{
     border: 1px solid;
     text-align: center;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0 20px 0;
 }
 
 .registration{
     text-align: center;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0 20px 0;
 }
 
 .filters{
     border: 1px solid;
     text-align: center;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0 20px 0;
 }
 
 .comment-section{
