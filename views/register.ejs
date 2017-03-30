@@ -1,0 +1,147 @@
+<%- include('header') %>
+<header class="jumbotron">
+    <!-- Main component for a primary marketing message or call to action -->
+
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-xs-12 col-sm-8 title">
+                <h1>Regisztráció</h1>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Főoldal</a></li>
+                <li class="active">Regisztráció</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="registration-form">
+                <fieldset>
+                    <legend>Alapadatok</legend>
+                    <div class="form-group">
+                        <label class="control-label">Profilkép feltöltése</label>
+                        <input type="file" class="file">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="nam">Név</label>
+                        <input type="text" placeholder="név" class="form-control" id="nam">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="ema">E-mail cím</label>
+                        <input type="text" placeholder="e-mail" class="form-control" id="ema">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="cit">Város</label>
+                        <input type="text" placeholder="város" class="form-control" id="cit">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="add">Lakcím</label>
+                        <input type="text" placeholder="lakcím" class="form-control" id="add">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="pos">Postai cím</label>
+                        <input type="text" placeholder="postai cím" class="form-control" id="pos">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="sex">Nem</label>
+                        <select class="form-control" id="sex">
+                            <option>-</option>
+                            <option>Nő</option>
+                            <option>Férfi</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Könyv adatok</legend>
+                    <div class="form-group">
+                        <label class="control-label">Kép</label>
+                        <input type="file" class="file">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="bti">Cím</label>
+                        <input type="text" placeholder="könyv címe" class="form-control" id="bti">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="bwr">Író</label>
+                        <input type="text" placeholder="könyv írója" class="form-control" id="bwr">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Műfaj</label>
+                        <br>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Klasszikus</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Ifjúsági</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Romantikus</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Történelmi</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Világirodalmi</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Lírai</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Drámai</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Technikai</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Szak</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Sci-fi</label>
+                        </div>
+                        <div class="checkbox-inline">
+                            <label><input type="checkbox" value="">Fantasztikus</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="bnr">Oldalszám</label>
+                        <select class="form-control" id="bnr">
+                            <option>1-100</option>
+                            <option>100-300</option>
+                            <option>300-500</option>
+                            <option>500-700</option>
+                            <option>700-1000</option>
+                            <option>1000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="bst">Állapot</label>
+                        <select class="form-control" id="bst">
+                            <option>Kiváló</option>
+                            <option>Nagyon jó</option>
+                            <option>Jó</option>
+                            <option>Kicsit megviselt</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="adm">Adminisztrátori kulcs (ne töltsd ki, ha nem vagy admin jogosult!!)</label>
+                        <input type="text" placeholder="kulcs" class="form-control" id="adm">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-danger">Regisztráció</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end: content -->
+<%- include('footer') %>

@@ -1,0 +1,105 @@
+<%- include('header') %>
+<header class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 title">
+                <h1>Könyv szerkesztése</h1>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Főoldal</a></li>
+            <li>Könyv szerkesztése</li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <form>
+            <fieldset>
+                <legend>Könyv adatok</legend>
+                <div class="form-group">
+                    <label class="control-label">Kép</label>
+                    <input type="file" class="file">
+                    <img src="http://placehold.it/150x150">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bti">Cím</label>
+                    <input type="text" placeholder="könyv címe" value="cim" class="form-control" id="bti">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bwr">Író</label>
+                    <input type="text" placeholder="könyv írója" value="iro" class="form-control" id="bwr">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Műfaj</label>
+                    <br>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="" checked>Klasszikus</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Ifjúsági</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Romantikus</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Történelmi</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Világirodalmi</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Lírai</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Drámai</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Technikai</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Szak</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Sci-fi</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label><input type="checkbox" value="">Fantasztikus</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bnr">Oldalszám</label>
+                    <select class="form-control" id="bnr" >
+                        <option>1-100</option>
+                        <option>100-300</option>
+                        <option>300-500</option>
+                        <option>500-700</option>
+                        <option>700-1000</option>
+                        <option>1000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bst">Állapot</label>
+                    <select class="form-control" id="bst">
+                        <option>Kiváló</option>
+                        <option>Nagyon jó</option>
+                        <option>Jó</option>
+                        <option>Kicsit megviselt</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">Változtatás</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- end: content -->
+<%- include('footer') %>
