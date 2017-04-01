@@ -11,12 +11,6 @@ module.exports = function (app) {
         bookModel: "asd"
     };
 
-    app.use('/book/:bookid',
-        softAuthMW(objectRepository),
-        getBookMW(objectRepository),
-        renderMW(objectRepository, 'book')
-    );
-
     app.get('/book/edit/:bookid',
         hardAuthMW(objectRepository),
         getBookMW(objectRepository),
@@ -29,6 +23,12 @@ module.exports = function (app) {
         getBookMW(objectRepository),
         authOnBookMW(objectRepository),
         updateBookMW(objectRepository),
+        renderMW(objectRepository, 'book')
+    );
+
+    app.use('/book/:bookid',
+        softAuthMW(objectRepository),
+        getBookMW(objectRepository),
         renderMW(objectRepository, 'book')
     );
 };
