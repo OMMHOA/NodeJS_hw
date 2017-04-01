@@ -6,6 +6,12 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("soft auth called");
+    	if (typeof req.session.userid === 'undefined') {
+	     	res.tpl.isLoggedIn = true;
+	    } else {
+	    	res.tpl.isLoggedIn = false;
+	    }
+
         return next();
     };
 };
