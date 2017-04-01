@@ -31,7 +31,7 @@
     border: 1px solid;
 }
 
-.login{
+.login, .profile{
     border: 1px solid;
     text-align: center;
     padding: 20px 0 20px 0;
@@ -50,4 +50,10 @@
 
 .comment-section{
     border: 1px solid;
+}
+
+#profile-picture{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
 }
