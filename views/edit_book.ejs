@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <ul class="breadcrumb">
-            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="/home">Főoldal</a></li>
             <li>Könyv szerkesztése</li>
         </ul>
     </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label class="control-label">Kép</label>
                     <input type="file" class="file">
-                    <img src="http://placehold.it/150x150">
+                    <img src="<%= book.image %>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="bti">Cím</label>

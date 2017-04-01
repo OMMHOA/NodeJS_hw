@@ -12,10 +12,13 @@ var getBookListLikeTitleMW = require('../middleware/book/search/getBookListLikeT
 var checkUserLoginMW = require('../middleware/user/checkUserLogin');
 var getCityOfUserMW = require('../middleware/user/getCityOfUser');
 
+var bookModel = require('../models/book');
+var userModel = require('../models/user');
+
 module.exports = function (app) {
     var objectRepository = {
-        userModel: "asd",
-        bookModel: "asd"
+        userModel: userModel,
+        bookModel: bookModel
     };
 
     app.use('/',
@@ -56,7 +59,7 @@ module.exports = function (app) {
         }
     );
 
-    app.use('logout',
+    app.use('/logout',
         logoutMW(objectRepository),
         function (req, res, next) {
             res.redirect('/');

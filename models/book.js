@@ -25,6 +25,7 @@ var TaskInstanceMock = {
     // 0 - Perfect, 1 - Very good, 2 - Good, 3 - A bit weary
     state: 0,
     language: 'magyar',
+    image: '/img/cover.png',
     dateOfLastTimeLent: '2017.12.11.',
     dateOfRegistration: '2017.12.10.'
 };
@@ -50,7 +51,7 @@ Task.findOne = function (criteria, cb) {
 Task.find = function (criteria, cb) {
 
     //returns 3 mocked item
-    return cb(null, [TaskInstanceMock, TaskInstanceMock, TaskInstanceMock]);
+    return cb(null, [TaskInstanceMock, TaskInstanceMock, TaskInstanceMock, TaskInstanceMock]);
 };
 
 /**

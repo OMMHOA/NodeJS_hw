@@ -11,7 +11,7 @@ module.exports = function (objectrepository, status) {
     var bookModel = requireOption(objectrepository, 'bookModel');
 
     return function (req, res, next) {
-
+	console.log("getBookListWithStatus");
         return next();
     };
 

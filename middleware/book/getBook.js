@@ -11,8 +11,31 @@ module.exports = function (objectrepository) {
     var bookModel = requireOption(objectrepository, 'bookModel');
 
     return function (req, res, next) {
-
-        return next();
+    	bookModel.findOne({
+    		id: req.params.id
+    	}, function(err, result){
+			if ((err) || (!result)) {
+				return req.redirect('/home');
+			}
+            
+            switch(result.location){
+                case 0:
+                    result.location = 'Tulajdonosnál';
+                    break;
+                case 1:
+                    result.location = 'Úton';
+                    break;
+                case 2:
+                    result.location = 'Kölcsönzőnél';
+                    break;
+                case 3:
+                    result.location = 'Eltűnt';
+                    break;
+            }
+			res.tpl.book = result;
+    		console.log("getBook");
+        	return next();
+    	});
     };
 
 };

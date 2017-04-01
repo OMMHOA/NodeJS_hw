@@ -14,7 +14,7 @@ var UserInstanceMock = {
     name: 'Lorem',
     email: 'lorem@example.org',
     password: 'asdasd',
-    profilePicture: 'http://placehold.it/150x150',
+    image: 'http://placehold.it/150x150',
     city: 'budapest',
     address: 'Irinyi Jozsef u. 42',
     postalCode: '1117',

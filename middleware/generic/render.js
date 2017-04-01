@@ -5,7 +5,8 @@
 module.exports = function (objectrepository, viewName) {
 
     return function (req, res) {
-        res.end('Render: ' + viewName);
-        //res.render(viewName, res.tpl);
+        //res.end('Render: ' + viewName);
+        console.log('render');
+        res.render(viewName, res.tpl);
     };
 };

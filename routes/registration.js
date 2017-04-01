@@ -6,9 +6,11 @@ var registerUserMW = require('../middleware/user/registerUser');
 
 var updateBookMW = require('../middleware/book/updateBook');
 
+var bookModel = require('../models/book');
+
 module.exports = function (app) {
     var objectRepository = {
-        bookModel : "asd"
+        bookModel : bookModel
     };
 
     app.get('/registration',

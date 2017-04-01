@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 title">
-                <h1>Egy könyv</h1>
+                <h1><%= book.title %></h1>
             </div>
             <div class="col-xs-12 col-sm-4">
             </div>
@@ -15,14 +15,15 @@
 <div class="container">
     <div class="row">
         <ul class="breadcrumb">
-            <li><a href="index.html">Főoldal</a></li>
-            <li>Egy könyv</li>
+            <li><a href="/home">Főoldal</a></li>
+            <li><%= book.title %></li>
         </ul>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <h2>Egy könyv</h2>
+        <h2><%= book.title %></h2>
+        <h3><%= book.writer %></h3>
     </div>
 </div>
 <div class="container">
@@ -31,11 +32,11 @@
             <img src="http://placehold.it/300x300">
         </div>
         <div class="col-xs-12 col-md-7">
-            <p><b>Utoljára kölcsönözve:</b> 1970.01.01.</p>
-            <p><b>Jelenlegi állapot:</b> tulajdonosnál.</p>
+            <p><b>Utoljára kölcsönözve:</b> <%= book.dateOfLastTimeLent %></p>
+            <p><b>Jelenlegi állapot:</b> <%= book.location %></p>
             <hr>
             <button class="btn btn-danger">Kölcsönzés</button>
-            <a href="edit_book.html"><button class="btn btn-danger">Szerkesztés</button></a>
+            <a href="/book/edit/<%= book.id %>"><button class="btn btn-danger">Szerkesztés</button></a>
         </div>
     </div>
 </div>

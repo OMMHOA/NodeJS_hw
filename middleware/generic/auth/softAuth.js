@@ -5,6 +5,7 @@
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
+    	console.log("soft auth called");
         return next();
     };
 };

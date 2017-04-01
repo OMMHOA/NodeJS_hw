@@ -8,7 +8,7 @@ var logRequestMW = require('./middleware/generic/logRequest');
 app.set('view engine', 'ejs');
 
 //Serve static before session
-app.use('/public', express.static('public'));
+app.use(express.static('public'));
 
 /**
  * Session above all
@@ -50,9 +50,10 @@ app.use(function (req, res, next) {
 /**
  * Include all the routes
  */
-require('./routes/home')(app);
-require('./routes/registration')(app);
 require('./routes/book')(app);
+require('./routes/registration')(app);
+require('./routes/home')(app);
+
 
 /**
  * Standard error handler

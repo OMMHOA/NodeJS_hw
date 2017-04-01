@@ -6,16 +6,18 @@ var getBookMW = require('../middleware/book/getBook');
 var authOnBookMW = require('../middleware/book/authOnBook');
 var updateBookMW = require('../middleware/book/updateBook');
 
+var bookModel = require('../models/book');
+
 module.exports = function (app) {
     var objectRepository = {
-        bookModel: "asd"
+        bookModel: bookModel
     };
 
     app.get('/book/edit/:bookid',
         hardAuthMW(objectRepository),
         getBookMW(objectRepository),
         authOnBookMW(objectRepository),
-        renderMW(objectRepository, 'book')
+        renderMW(objectRepository, 'edit_book')
     );
 
     app.post('/book/edit/:bookid',
