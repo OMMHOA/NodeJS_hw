@@ -34,22 +34,32 @@
                 </form>
             </div>
             <!-- /searchbar -->
+            <br>
             <!-- books -->
             <% for(var i=0; i<books.length; i++) {%>
                 <% if (i % 3 === 0) {%>
                     <div class="row">
                 <% } %>
                 <div class="col-xs-12 col-md-4">
-                    <a href="/book/<%= books[i].id %>">
-                        <div class="book">
-                            <img src="<%= books[i].image %>"></img>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <a href="/book/<%= books[i].id %>">
+                                <div class="book">
+                                    <img src="<%= books[i].image %>"></img>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                        <div class="col-xs-12 col-md-6">
+                            <h5><%= books[i].title %></h6>
+                            <h6><%= books[i].writer %></h6>
+                            <h6>Kölcsönözve: <%= books[i].timesLent %><h6>
+                        </div>
+                    </div>
                 </div>
-                <% if (i % 3 === 0) {%>
+                <% if (i % 3 === 2) {%>
                     </div>
                 <% } %>
-            <% } %>
+            <% } %> 
             <!-- /books -->
         </div>
         <!-- /middlelane-->

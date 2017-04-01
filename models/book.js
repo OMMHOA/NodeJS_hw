@@ -23,7 +23,7 @@ var TaskInstanceMock = {
     pageCount: '100-300',
     genre: ['Klasszikus'],
     // 0 - Perfect, 1 - Very good, 2 - Good, 3 - A bit weary
-    state: 0,
+    state: 2,
     language: 'magyar',
     image: '/img/cover.png',
     dateOfLastTimeLent: '2017.12.11.',

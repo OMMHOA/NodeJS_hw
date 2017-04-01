@@ -32,6 +32,22 @@ module.exports = function (objectrepository) {
                     result.location = 'Eltűnt';
                     break;
             }
+
+            switch(result.state){
+                case 0:
+                    result.state = 'Kiváló'
+                    break;
+                case 1:
+                    result.state = 'Nagyon jó'
+                    break;
+                case 2:
+                    result.state = 'Jó'
+                    break;
+                case 3:
+                    result.state = 'Kicsit megviselt'
+                    break;
+
+            }
 			res.tpl.book = result;
     		console.log("getBook");
         	return next();
