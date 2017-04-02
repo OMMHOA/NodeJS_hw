@@ -7,9 +7,11 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("hardAuth");
-    	if (typeof req.session.userid === 'undefined') {
-      		return res.redirect('/');
-    	}
+    	// if (typeof req.session.userid === 'undefined') {
+    	// 	res.tpl.isLoggedIn = false;
+     //  		return res.redirect('/');
+    	// }
+    	// res.tpl.isLoggedIn = true;
         return next();
     };
 };

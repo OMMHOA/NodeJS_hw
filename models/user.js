@@ -11,7 +11,7 @@ var User = function () {
  */
 var UserInstanceMock = {
     id: 1,
-    name: 'Lorem',
+    name: 'asd',
     email: 'lorem@example.org',
     password: 'asdasd',
     image: 'http://placehold.it/150x150',

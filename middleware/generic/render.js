@@ -1,6 +1,5 @@
 /**
- * Using the template engine render the values into the template
- * - except if the value is 'home', set tpl.error
+ * Using the template engine render the values into the template and generates header content.
  */
 module.exports = function (objectrepository, viewName) {
 
@@ -21,6 +20,9 @@ module.exports = function (objectrepository, viewName) {
         	case 'edit_book':
         		res.tpl.headerContent = '<h1>Könyv szerkesztése</h1>';
         		break;
+            default:
+                res.tpl.headerContent = 'error';
+                break;
         }
         res.render(viewName, res.tpl);
     };

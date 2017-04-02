@@ -25,7 +25,7 @@ var TaskInstanceMock = {
     // 0 - Perfect, 1 - Very good, 2 - Good, 3 - A bit weary
     state: 2,
     language: 'magyar',
-    image: '/img/cover.png',
+    image: 'http://placehold.it/150x150',
     dateOfLastTimeLent: '2017.12.11.',
     dateOfRegistration: '2017.12.10.'
 };

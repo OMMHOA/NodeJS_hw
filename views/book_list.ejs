@@ -2,7 +2,11 @@
     <div class="row main-content">
         <!-- rightlane -->
         <div class="col-sm-12 col-md-2 col-md-push-10">
-            <%- include('login') %>
+            <% if (isLoggedIn) {%>
+                <%- include('profile') %>
+            <% } else { %>
+                <%- include('login') %>
+            <% } %>
             <div class="row filters">
                 <h3>Szűrők</h3>
                 <ul class="list-unstyled">

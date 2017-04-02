@@ -11,6 +11,7 @@ var getBookListLikeTitleMW = require('../middleware/book/search/getBookListLikeT
 
 var checkUserLoginMW = require('../middleware/user/checkUserLogin');
 var getCityOfUserMW = require('../middleware/user/getCityOfUser');
+var getUserMW = require('../middleware/user/getUser');
 
 var bookModel = require('../models/book');
 var userModel = require('../models/user');
@@ -22,19 +23,26 @@ module.exports = function (app) {
     };
 
     app.use('/',
+        function (req, res, next) {
+            console.log('/');
+            return next();
+        },
         softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookListMW(objectRepository),
         renderMW(objectRepository, 'home')
     );
 
     app.use('/home',
         softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookListMW(objectRepository),
         renderMW(objectRepository, 'home')
     );
 
     app.use('/filterByCity',
         softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getCityOfUserMW(objectRepository),
         getBookListWithCityMW(objectRepository),
         renderMW(objectRepository, 'home')
@@ -42,11 +50,14 @@ module.exports = function (app) {
 
     app.use('/filterByStatus',
         hardAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookListWithStatusMW(objectRepository, 'available'),
         renderMW(objectRepository, 'home')
     );
 
     app.use('/search',
+        softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookListLikeTitleMW(objectRepository),
         renderMW(objectRepository, 'home')
     );
