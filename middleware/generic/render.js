@@ -4,7 +4,6 @@
 module.exports = function (objectrepository, viewName) {
 
     return function (req, res) {
-        //res.end('Render: ' + viewName);
         console.log('render');
         switch(viewName) {
         	case 'book':

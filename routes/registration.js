@@ -1,6 +1,7 @@
 var renderMW = require('../middleware/generic/render');
 var inverseAuthMW = require('../middleware/generic/auth/inverseAuth');
-var checkRegistrationParamsMW = require('../middleware/generic/checkRegistrationParams');
+var checkRegistrationParamsMW = require('../middleware/registration/checkRegistrationParams');
+var checkUserExistMW = require('../middleware/registration/checkUserExist');
 
 var registerUserMW = require('../middleware/user/registerUser');
 
@@ -23,6 +24,7 @@ module.exports = function (app) {
     app.post('/registration',
         inverseAuthMW(objectRepository),
         checkRegistrationParamsMW(objectRepository),
+        checkUserExistMW(objectRepository),
         registerUserMW(objectRepository),
         updateBookMW(objectRepository),
         function (req, res, next) {

@@ -2,6 +2,7 @@ var Schema = require('mongoose').Schema;
 var db = require('../config/db');
 
 var User = db.model('User', {
+    id: String,
     name: String,
     email: String,
     password: String,

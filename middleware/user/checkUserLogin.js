@@ -11,7 +11,7 @@ module.exports = function (objectrepository) {
 
     //not enough parameter
     if ((typeof req.body === 'undefined') || 
-    	(typeof req.body.id !== 'undefined') ||
+    	(typeof req.body.userId !== 'undefined') ||
       (typeof req.body.password === 'undefined')) {
       return next();
     }
