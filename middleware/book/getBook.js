@@ -1,5 +1,5 @@
 var requireOption = require('../common').requireOption;
-
+var ObjectId = require('mongoose').Types.ObjectId;
 /**
  * Get the book for the book param
  *  - if there is no such book, redirect to /home
@@ -11,45 +11,44 @@ module.exports = function (objectrepository) {
     var bookModel = requireOption(objectrepository, 'bookModel');
 
     return function (req, res, next) {
-    	bookModel.findOne({
-    		id: req.params.id
-    	}, function(err, result){
+        console.log("getBook");
+    	bookModel.findById(req.param('bookid'), function(err, result){
 			if ((err) || (!result)) {
-				return req.redirect('/home');
+			    console.log('book not found');
+				return res.redirect('/home');
 			}
             
             switch(result.location){
                 case 0:
-                    result.location = 'Tulajdonosnál';
+                    res.tpl.bookLocation = 'Tulajdonosnál';
                     break;
                 case 1:
-                    result.location = 'Úton';
+                    res.tpl.bookLocation = 'Úton';
                     break;
                 case 2:
-                    result.location = 'Kölcsönzőnél';
+                    res.tpl.bookLocation = 'Kölcsönzőnél';
                     break;
                 case 3:
-                    result.location = 'Eltűnt';
+                    res.tpl.bookLocation = 'Eltűnt';
                     break;
             }
 
             switch(result.state){
                 case 0:
-                    result.state = 'Kiváló'
+                    res.tpl.bookState = 'Kiváló'
                     break;
                 case 1:
-                    result.state = 'Nagyon jó'
+                    res.tpl.bookState = 'Nagyon jó'
                     break;
                 case 2:
-                    result.state = 'Jó'
+                    res.tpl.bookState = 'Jó'
                     break;
                 case 3:
-                    result.state = 'Kicsit megviselt'
+                    res.tpl.bookState = 'Kicsit megviselt'
                     break;
 
             }
 			res.tpl.book = result;
-    		console.log("getBook");
         	return next();
     	});
     };

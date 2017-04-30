@@ -1,11 +1,12 @@
 /**
- * registers book into db using the given params
+ * registers book into db using the given params.
  */
 var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
 
     var BookModel = requireOption(objectrepository, 'bookModel');
+    var UserModel = requireOption(objectrepository, 'userModel');
 
     return function (req, res, next) {
         console.log('register book');
@@ -15,9 +16,12 @@ module.exports = function (objectrepository) {
         book.image = 'http://placehold.it/150x150';
         book.timesLent = 0;
         book.location = 0;
-        book.save(function(err){
-            if (err) console.log('save unsuccessful');
-            return next();
+        UserModel.findOne({id: req.user.id}, function (err, result) {
+            book.user_id = result._id;
+            book.save(function(err){
+                if (err) console.log('save unsuccessful');
+                return next();
+            });
         });
     };
 

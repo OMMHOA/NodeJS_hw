@@ -6,11 +6,15 @@ var getBookMW = require('../middleware/book/getBook');
 var authOnBookMW = require('../middleware/book/authOnBook');
 var updateBookMW = require('../middleware/book/updateBook');
 
+var getUserMW = require('../middleware/user/getUser');
+
 var bookModel = require('../models/book');
+var userModel = require('../models/user');
 
 module.exports = function (app) {
     var objectRepository = {
-        bookModel: bookModel
+        bookModel: bookModel,
+        userModel: userModel
     };
 
     app.get('/book/edit/:bookid',
@@ -31,6 +35,7 @@ module.exports = function (app) {
     app.use('/book/:bookid',
         softAuthMW(objectRepository),
         getBookMW(objectRepository),
+        getUserMW(objectRepository),
         renderMW(objectRepository, 'book')
     );
 };

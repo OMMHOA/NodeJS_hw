@@ -16,7 +16,8 @@ var User = db.model('User', {
     ownedBooks: [Schema.Types.ObjectId],
     lentBooks: [Schema.Types.ObjectId],
     borrowedBooks: [Schema.Types.ObjectId],
-    bookHistory: [Schema.Types.ObjectId]
+    bookHistory: [Schema.Types.ObjectId],
+    isAdmin: Boolean
 });
 
 module.exports = User;
