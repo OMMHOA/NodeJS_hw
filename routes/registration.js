@@ -5,7 +5,7 @@ var checkUserExistMW = require('../middleware/registration/checkUserExist');
 
 var registerUserMW = require('../middleware/user/registerUser');
 
-var updateBookMW = require('../middleware/book/updateBook');
+var registerBookMW = require('../middleware/book/registerBook');
 
 var bookModel = require('../models/book');
 var userModel = require('../models/user');
@@ -26,7 +26,7 @@ module.exports = function (app) {
         checkRegistrationParamsMW(objectRepository),
         checkUserExistMW(objectRepository),
         registerUserMW(objectRepository),
-        updateBookMW(objectRepository),
+        registerBookMW(objectRepository),
         function (req, res, next) {
             res.redirect('/login');
         }

@@ -50,9 +50,9 @@ app.use(function (req, res, next) {
 /**
  * Include all the routes
  */
+require('./routes/home')(app);
 require('./routes/book')(app);
 require('./routes/registration')(app);
-require('./routes/home')(app);
 
 
 /**

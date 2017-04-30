@@ -6,11 +6,20 @@ var requireOption = require('../common').requireOption;
 
 module.exports = function (objectrepository) {
 
-    var userModel = requireOption(objectrepository, 'userModel');
+    var UserModel = requireOption(objectrepository, 'userModel');
 
     return function (req, res, next) {
-    	
-        return next();
+    	console.log('register user');
+    	var user = new UserModel();
+    	user.id = req.body.userId;
+    	user.name = req.body.name;
+    	user.password = req.body.password;
+    	user.city = req.body.city;
+    	user.save(function(err){
+    	    if (err) console.log('save unsuccessful');
+    	    req.user = user;
+            return next();
+        });
     };
 
 };

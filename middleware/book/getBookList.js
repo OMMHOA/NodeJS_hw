@@ -12,7 +12,8 @@ module.exports = function (objectrepository) {
         console.log('getBookList called');
         bookModel.find({}, function (err, results) {
             if (err) {
-                return next(err);
+                console.log('book list not found');
+                return next();
             }
             res.tpl.books = results;
             return next();

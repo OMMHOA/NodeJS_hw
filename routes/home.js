@@ -22,15 +22,15 @@ module.exports = function (app) {
         bookModel: bookModel
     };
 
-    app.use('/',
+    app.get('/',
         function (req, res, next) {
             console.log('/');
             return next();
         },
-        softAuthMW(objectRepository),
-        getUserMW(objectRepository),
-        getBookListMW(objectRepository),
-        renderMW(objectRepository, 'home')
+        function (req, res, next) {
+            console.log('redirecting to home');
+            return res.redirect('/home')
+        }
     );
 
     app.use('/home',

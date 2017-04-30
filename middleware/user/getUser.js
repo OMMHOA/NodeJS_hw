@@ -11,17 +11,22 @@ module.exports = function (objectrepository) {
     var userModel = requireOption(objectrepository, 'userModel');
 
     return function (req, res, next) {
-    	if (res.tpl.isLoggedIn) {
-	    	userModel.findOne({}, function(err, result) {
-	    		if (err) {
-	    			console.log('error at getuser');
-	    			return req.redirect('/home');
-	    		}
-	    		res.tpl.user = result;
-	    	});
-	    	console.log("getUser");
-	    }
-	    return next();
+        console.log("getUser");
+        if (res.tpl.isLoggedIn === true) {
+            console.log('logged in');
+            userModel.findOne({_id: req.session.userid}, function(err, result) {
+                if (err || (!result)) {
+                    console.log('couldnt find user -.-');
+                    res.tpl.isLoggedIn = false;
+                } else {
+                    console.log(result.name);
+                    res.tpl.user = result;
+                }
+                return next();
+            });
+        } else {
+            return next();
+        }
     };
 
 };
