@@ -12,8 +12,7 @@ module.exports = function (objectrepository) {
         if (!req.body.userId || !req.body.password || !req.body.name || !req.body.email || !req.body.city || !req.body.address
             || !req.body.postal || !req.body.title || !req.body.writer || !req.body.pageCount || !req.body.state || !req.body.language) {
             req.session.error = "Minden szükséges mező kitöltése kötezelő!";
-            res.redirect("/registration");
-            return;
+            return res.redirect("/registration");
         }
         return next();
     };

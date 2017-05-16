@@ -16,7 +16,10 @@ module.exports = function (objectrepository) {
     	user.password = req.body.password;
     	user.city = req.body.city;
     	user.save(function(err){
-    	    if (err) console.log('save unsuccessful');
+    	    if (err) {
+                console.log('save user unsuccessful');
+                return res.redirect('/registration');
+            }
     	    req.user = user;
             return next();
         });

@@ -17,6 +17,10 @@ module.exports = function (objectrepository) {
         book.timesLent = 0;
         book.location = 0;
         UserModel.findOne({id: req.user.id}, function (err, result) {
+            if (err || !result) {
+                console.log('error at finding user');
+                return res.redirect('/registration');
+            }
             book.user_id = result._id;
             book.save(function(err){
                 if (err) console.log('save unsuccessful');

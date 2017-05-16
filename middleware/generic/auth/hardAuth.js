@@ -7,6 +7,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("hardAuth");
+    	// if admin
     	// if (typeof req.session.userid === 'undefined') {
     	// 	res.tpl.isLoggedIn = false;
      //  		return res.redirect('/');

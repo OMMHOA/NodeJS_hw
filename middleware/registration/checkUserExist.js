@@ -15,6 +15,7 @@ module.exports = function (objectrepository) {
                 return req.redirect("/");
             }
             if (!user) return next();
+            console.log('user already exists');
             req.session.error = "Felhasználónév foglalt!";
             return res.redirect("/registration");
         });
