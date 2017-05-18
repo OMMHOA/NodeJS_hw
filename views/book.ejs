@@ -21,18 +21,28 @@
         <div class="col-xs-12 col-md-7">
             <p><b>Állapot:</b>
                 <% if (book.state == 0) { %>
-                    kiváló
+                    kiváló,
                 <% } else if (book.state == 1) { %>
-                    nagyon jó
+                    nagyon jó,
                 <% } else if (book.state == 2) { %>
-                    jó
+                    jó,
                 <% } else if (book.state == 3) { %>
-                    kicsit megviselt
+                    kicsit megviselt,
+                <% } else { %>
+                    nemtom,
+                <% } %>
+                <% if (book.location == 0) { %>
+                    tulajdonosnál
+                <% } else if (book.location == 1) { %>
+                    úton
+                <% } else if (book.location == 2) { %>
+                    kölcsönzőnél
+                <% } else if (book.location == 3) { %>
+                    eltűnt
                 <% } else { %>
                     nemtom
                 <% } %>
             </p>
-            <p><b>Hol van?:</b> <%= bookLocation %></p>
             <hr>
             <% if (isLoggedIn) {%>
                 <button class="btn btn-danger">Kölcsönzés</button>

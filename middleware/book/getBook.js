@@ -17,37 +17,7 @@ module.exports = function (objectrepository) {
 			    console.log('book not found');
 				return res.redirect('/home');
 			}
-            
-            switch(result.location){
-                case 0:
-                    res.tpl.bookLocation = 'Tulajdonosnál';
-                    break;
-                case 1:
-                    res.tpl.bookLocation = 'Úton';
-                    break;
-                case 2:
-                    res.tpl.bookLocation = 'Kölcsönzőnél';
-                    break;
-                case 3:
-                    res.tpl.bookLocation = 'Eltűnt';
-                    break;
-            }
-
-            switch(result.state){
-                case 0:
-                    res.tpl.bookState = 'Kiváló'
-                    break;
-                case 1:
-                    res.tpl.bookState = 'Nagyon jó'
-                    break;
-                case 2:
-                    res.tpl.bookState = 'Jó'
-                    break;
-                case 3:
-                    res.tpl.bookState = 'Kicsit megviselt'
-                    break;
-
-            }
+			
 			res.tpl.book = result;
         	return next();
     	});
