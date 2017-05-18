@@ -19,8 +19,20 @@
             <img src="http://placehold.it/300x300">
         </div>
         <div class="col-xs-12 col-md-7">
-            <p><b>Utoljára kölcsönözve:</b> <%= book.dateOfLastTimeLent %></p>
-            <p><b>Jelenlegi állapot:</b> <%= bookLocation %></p>
+            <p><b>Állapot:</b>
+                <% if (book.state == 0) { %>
+                    kiváló
+                <% } else if (book.state == 1) { %>
+                    nagyon jó
+                <% } else if (book.state == 2) { %>
+                    jó
+                <% } else if (book.state == 3) { %>
+                    kicsit megviselt
+                <% } else { %>
+                    nemtom
+                <% } %>
+            </p>
+            <p><b>Hol van?:</b> <%= bookLocation %></p>
             <hr>
             <% if (isLoggedIn) {%>
                 <button class="btn btn-danger">Kölcsönzés</button>
