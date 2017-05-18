@@ -15,6 +15,7 @@ module.exports = function (objectrepository) {
     	user.name = req.body.name;
     	user.password = req.body.password;
     	user.city = req.body.city;
+    	user.isAdmin = req.body.admin === 'aloha'; // this is the admin key so watch out
     	user.save(function(err){
     	    if (err) {
                 console.log('save user unsuccessful');

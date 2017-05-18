@@ -40,21 +40,6 @@ module.exports = function (app) {
         renderMW(objectRepository, 'home')
     );
 
-    // app.use('/filterByCity',
-    //     softAuthMW(objectRepository),
-    //     getUserMW(objectRepository),
-    //     getBookListMW(objectRepository),
-    //     getBookListWithCityMW(objectRepository),
-    //     renderMW(objectRepository, 'home')
-    // );
-    //
-    // app.use('/filterByStatus',
-    //     hardAuthMW(objectRepository),
-    //     getUserMW(objectRepository),
-    //     getBookListWithStatusMW(objectRepository),
-    //     renderMW(objectRepository, 'home')
-    // );
-
     app.post('/search',
         softAuthMW(objectRepository),
         getUserMW(objectRepository),
