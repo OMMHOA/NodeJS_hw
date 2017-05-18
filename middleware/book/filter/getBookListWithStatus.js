@@ -1,9 +1,7 @@
 var requireOption = require('../../common').requireOption;
 
 /**
- * Get the book list where state param equals book.title
- * - if there is no param, redirect to /home
- * - put the books on res.tpl.books
+ * Filter books which are only at owner if req.body.lendable is checked
  */
 
 module.exports = function (objectrepository) {
@@ -12,6 +10,16 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 		console.log("getBookListWithStatus");
+		if (req.body.lendable) {
+            var books = res.tpl.books;
+            var filteredBooks = [];
+            for (var i = 0; i < books.length; i++) {
+                if (books[i].location === 0) {
+                    filteredBooks.push(books[i]);
+                }
+            }
+            res.tpl.books = filteredBooks;
+        }
         return next();
     };
 

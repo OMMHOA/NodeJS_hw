@@ -18,7 +18,6 @@ module.exports = function (objectrepository) {
             return next();
         }
     	if (req.body.mycity) {
-    	    console.log('city is checked');
             var books = res.tpl.books;
             var filteredBooks = [];
             for (var i = 0; i < books.length; i++) {
