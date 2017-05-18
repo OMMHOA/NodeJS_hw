@@ -6,7 +6,7 @@ var requireOption = require('../../common').requireOption;
  * - put the books on res.tpl.books
  */
 
-module.exports = function (objectrepository, status) {
+module.exports = function (objectrepository) {
 
     var bookModel = requireOption(objectrepository, 'bookModel');
 

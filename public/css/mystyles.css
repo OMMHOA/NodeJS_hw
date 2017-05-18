@@ -15,7 +15,7 @@
 
     background: url(../img/bg-books.jpg) repeat-x 0 0;
 
-    animation: animatedBackground 40s linear infinite;
+    animation: animatedBackground 60s linear infinite;
 }
 
 .title {

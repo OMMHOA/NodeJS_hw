@@ -16,6 +16,7 @@ module.exports = function (objectrepository) {
         book.image = 'http://placehold.it/150x150';
         book.timesLent = 0;
         book.location = 0;
+        book.city = req.body.city;
         UserModel.findOne({id: req.user.id}, function (err, result) {
             if (err || !result) {
                 console.log('error at finding user');

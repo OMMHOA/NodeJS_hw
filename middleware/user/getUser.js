@@ -13,10 +13,10 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         console.log("getUser");
         if (res.tpl.isLoggedIn === true) {
-            console.log('logged in');
+            console.log('logged in as:');
             userModel.findOne({_id: req.session.userid}, function(err, result) {
                 if (err || (!result)) {
-                    console.log('couldnt find user -.-');
+                    console.log('couldnt find user');
                     res.tpl.isLoggedIn = false;
                 } else {
                     console.log(result.name);

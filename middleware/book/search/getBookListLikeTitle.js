@@ -12,7 +12,15 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("getBookListLikeTitle");
-        return next();
+    	var query = req.body.title;
+        bookModel.find({title: {$regex : query, $options: 'i'}}, function (err, results) {
+            if (err) {
+                console.log('book list not found');
+                return next();
+            }
+            res.tpl.books = results;
+            return next();
+        });
     };
 
 };

@@ -18,7 +18,8 @@ var Book = db.model('Book',{
     language: String,
     image: String,
     dateOfLastTimeLent: Date,
-    dateOfRegistration: Date
+    dateOfRegistration: Date,
+    city: String
 });
 
 module.exports = Book;

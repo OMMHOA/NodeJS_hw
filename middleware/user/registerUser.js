@@ -21,6 +21,7 @@ module.exports = function (objectrepository) {
                 return res.redirect('/registration');
             }
     	    req.user = user;
+    	    req.session.userid = user._id;
             return next();
         });
     };
