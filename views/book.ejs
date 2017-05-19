@@ -45,23 +45,22 @@
             </p>
             <hr>
             <% if (isLoggedIn) {%>
-                <button class="btn btn-danger">Kölcsönzés</button>
                 <% if (book.user_id === user._id || user.isAdmin) %>
                 <a href="/book/edit/<%= book.id %>"><button class="btn btn-danger">Szerkesztés</button></a>
             <% } %>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <h2>Hozzászólások</h2>
-        <div class="col-xs-12 comment-section">
-            <div class="row">
-                <h4>Nincs hozzászólás</h4>
-            </div>
-            <!-- comments -->
-        </div>
-    </div>
-</div>
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<h2>Hozzászólások</h2>-->
+        <!--<div class="col-xs-12 comment-section">-->
+            <!--<div class="row">-->
+                <!--<h4>Nincs hozzászólás</h4>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; comments &ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 <!-- end: content -->
 <%- include('footer') %>
