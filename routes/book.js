@@ -18,8 +18,10 @@ module.exports = function (app) {
     };
 
     app.get('/book/edit/:bookid',
-        hardAuthMW(objectRepository),
+        softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookMW(objectRepository),
+        hardAuthMW(objectRepository),
         authOnBookMW(objectRepository),
         renderMW(objectRepository, 'edit_book')
     );

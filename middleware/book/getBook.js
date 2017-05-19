@@ -1,5 +1,5 @@
 var requireOption = require('../common').requireOption;
-var ObjectId = require('mongoose').Types.ObjectId;
+
 /**
  * Get the book for the book param
  *  - if there is no such book, redirect to /home
@@ -17,7 +17,7 @@ module.exports = function (objectrepository) {
 			    console.log('book not found');
 				return res.redirect('/home');
 			}
-			
+
 			res.tpl.book = result;
         	return next();
     	});
