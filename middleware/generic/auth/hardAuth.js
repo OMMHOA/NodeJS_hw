@@ -8,7 +8,6 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
     	console.log("hardAuth");
         if (res.tpl.user && res.tpl.book && (res.tpl.user.isAdmin || res.tpl.user._id.equals(res.tpl.book.user_id))) {
-            console.log('aight');
             return next();
         }
         return res.redirect('/');

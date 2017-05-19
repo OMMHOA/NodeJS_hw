@@ -12,98 +12,99 @@
         <form method="POST" action="/book/edit/<%= book.id %>">
             <fieldset>
                 <legend>Könyv adatok</legend>
-                <div class="form-group">
-                    <label class="control-label">Kép</label>
-                    <input type="file" class="file">
-                    <img src="<%= book.image %>">
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label">Kép</label>-->
+                    <!--<input type="file" class="file">-->
+                    <!--<img src="<%= book.image %>">-->
+                <!--</div>-->
                 <div class="form-group">
                     <label class="control-label" for="bti">Cím</label>
-                    <input type="text" placeholder="könyv címe" value="<%= book.title %>" class="form-control" id="bti">
+                    <input type="text" placeholder="könyv címe" value="<%= book.title %>" class="form-control" name="title" id="bti">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="bwr">Író</label>
-                    <input type="text" placeholder="könyv írója" value="<%= book.writer %>" class="form-control" id="bwr">
+                    <input type="text" placeholder="könyv írója" value="<%= book.writer %>" class="form-control" name="writer" id="bwr">
                 </div>
+                <!--
                 <div class="form-group">
                     <label class="control-label">Műfaj</label>
                     <br>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value="" 
+                        <label><input type="checkbox" name="classic"
                             <% if (book.genre.indexOf("Klasszikus") > -1) {%>
                             checked <% } %>>Klasszikus</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="young"
                             <% if (book.genre.indexOf("Ifjúsági") > -1) {%>
                             checked <% } %>>Ifjúsági</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="romantic"
                             <% if (book.genre.indexOf("Romantikus") > -1) {%>
                             checked <% } %>>Romantikus</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="historical"
                             <% if (book.genre.indexOf("Történelmi") > -1) {%>
                             checked <% } %>>Történelmi</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="world"
                             <% if (book.genre.indexOf("Világirodalmi") > -1) {%>
                             checked <% } %>>Világirodalmi</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="poem"
                             <% if (book.genre.indexOf("Lírai") > -1) {%>
                             checked <% } %>>Lírai</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="drama"
                             <% if (book.genre.indexOf("Drámai") > -1) {%>
                             checked <% } %>>Drámai</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="technikai"
                             <% if (book.genre.indexOf("Technikai") > -1) {%>
                             checked <% } %>>Technikai</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="career"
                             <% if (book.genre.indexOf("Szak") > -1) {%>
                             checked <% } %>>Szak</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="scifi"
                             <% if (book.genre.indexOf("Sci-fi") > -1) {%>
                             checked <% } %>>Sci-fi</label>
                     </div>
                     <div class="checkbox-inline">
-                        <label><input type="checkbox" value=""
+                        <label><input type="checkbox" name="fantastic"
                             <% if (book.genre.indexOf("Fantasztikus") > -1) {%>
                             checked <% } %>>Fantasztikus</label>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="bnr">Oldalszám</label>
-                    <select class="form-control" id="bnr" >
-                        <option><%= book.pageCount %></option>
-                        <option>1-100</option>
-                        <option>100-300</option>
-                        <option>300-500</option>
-                        <option>500-700</option>
-                        <option>700-1000</option>
-                        <option>1000+</option>
-                    </select>
-                </div>
+                </div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" for="bnr">Oldalszám</label>-->
+                    <!--<select class="form-control" id="bnr" >-->
+                        <!--<option><%= book.pageCount %></option>-->
+                        <!--<option>1-100</option>-->
+                        <!--<option>100-300</option>-->
+                        <!--<option>300-500</option>-->
+                        <!--<option>500-700</option>-->
+                        <!--<option>700-1000</option>-->
+                        <!--<option>1000+</option>-->
+                    <!--</select>-->
+                <!--</div>-->
                 <div class="form-group">
                     <label class="control-label" for="bst">Állapot</label>
-                    <select class="form-control" id="bst">
-                        <option><%= book.state %></option>
-                        <option>Kiváló</option>
-                        <option>Nagyon jó</option>
-                        <option>Jó</option>
-                        <option>Kicsit megviselt</option>
+                    <select class="form-control" name="state" id="bst">
+                        <option value="<%= book.state %>"></option>
+                        <option value="0">Kiváló</option>
+                        <option value="1">Nagyon jó</option>
+                        <option value="2">Jó</option>
+                        <option value="3">Kicsit megviselt</option>
                     </select>
                 </div>
                 <div class="form-group">

@@ -27,9 +27,10 @@ module.exports = function (app) {
     );
 
     app.post('/book/edit/:bookid',
-        hardAuthMW(objectRepository),
+        softAuthMW(objectRepository),
+        getUserMW(objectRepository),
         getBookMW(objectRepository),
-        authOnBookMW(objectRepository),
+        hardAuthMW(objectRepository),
         updateBookMW(objectRepository),
         renderMW(objectRepository, 'book')
     );

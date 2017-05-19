@@ -13,7 +13,14 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("updateBook");
-        return next();
+    	var book = res.tpl.book;
+    	book.title = req.body.title;
+    	book.writer = req.body.writer;
+        book.state = req.body.state;
+        book.save(function(err){
+            if (err) console.log('update unsuccessful');
+            return next();
+        });
     };
 
 };
