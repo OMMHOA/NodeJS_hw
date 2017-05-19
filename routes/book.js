@@ -4,6 +4,7 @@ var renderMW = require('../middleware/generic/render');
 
 var getBookMW = require('../middleware/book/getBook');
 var updateBookMW = require('../middleware/book/updateBook');
+var deleteBookMW = require('../middleware/book/deleteBook');
 
 var getUserMW = require('../middleware/user/getUser');
 
@@ -31,6 +32,17 @@ module.exports = function (app) {
         hardAuthMW(objectRepository),
         updateBookMW(objectRepository),
         renderMW(objectRepository, 'book')
+    );
+
+    app.post('/book/delete/:bookid',
+        softAuthMW(objectRepository),
+        getUserMW(objectRepository),
+        getBookMW(objectRepository),
+        hardAuthMW(objectRepository),
+        deleteBookMW(objectRepository),
+        function (req, res, next) {
+            res.redirect('/');
+        }
     );
 
     app.use('/book/:bookid',

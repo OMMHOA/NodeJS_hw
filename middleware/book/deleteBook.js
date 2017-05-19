@@ -9,7 +9,10 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
     	console.log("deleteBook");
-        return next();
+        bookModel.remove({_id: res.tpl.book._id}, function(err){
+            if (err) console.log('delete unsuccessful');
+            return next();
+        });
     };
 
 };
