@@ -11,7 +11,6 @@ module.exports = function (objectrepository) {
         console.log("inverse Auth");
     	if (typeof req.session.userid !== 'undefined') {
     		console.log('user is logged in');
-    		res.tpl.isLoggedIn = true;
       		return res.redirect('/');
     	}
     	res.tpl.isLoggedIn = false;
