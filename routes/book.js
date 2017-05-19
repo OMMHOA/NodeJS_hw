@@ -3,7 +3,6 @@ var hardAuthMW = require('../middleware/generic/auth/hardAuth');
 var renderMW = require('../middleware/generic/render');
 
 var getBookMW = require('../middleware/book/getBook');
-var authOnBookMW = require('../middleware/book/authOnBook');
 var updateBookMW = require('../middleware/book/updateBook');
 
 var getUserMW = require('../middleware/user/getUser');
@@ -22,7 +21,6 @@ module.exports = function (app) {
         getUserMW(objectRepository),
         getBookMW(objectRepository),
         hardAuthMW(objectRepository),
-        authOnBookMW(objectRepository),
         renderMW(objectRepository, 'edit_book')
     );
 

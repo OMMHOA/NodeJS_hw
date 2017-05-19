@@ -1,5 +1,4 @@
 var softAuthMW = require('../middleware/generic/auth/softAuth');
-var hardAuthMW = require('../middleware/generic/auth/hardAuth');
 var renderMW = require('../middleware/generic/render');
 var inverseAuthMW = require('../middleware/generic/auth/inverseAuth');
 var logoutMW = require('../middleware/generic/logout');
@@ -10,7 +9,6 @@ var getBookListWithStatusMW = require('../middleware/book/filter/getBookListWith
 var getBookListLikeTitleMW = require('../middleware/book/search/getBookListLikeTitle');
 
 var checkUserLoginMW = require('../middleware/user/checkUserLogin');
-var getCityOfUserMW = require('../middleware/user/getCityOfUser');
 var getUserMW = require('../middleware/user/getUser');
 
 var bookModel = require('../models/book');
